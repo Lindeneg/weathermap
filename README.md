@@ -1,8 +1,8 @@
 # Weather App
 
 - Began: October 17th 21:55 CEST
-- Ended: October 18th 00:35 CEST
-- Total: 2h, 40min.
+- Ended: October 18th 00:55 CEST
+- Total: 2h, 55min.
 
 All changes (besides the initial commit) are merged via PRs. Branches are not deleted, so they can be checked out if desired.
 

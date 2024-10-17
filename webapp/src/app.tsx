@@ -8,10 +8,12 @@ import Spinner from "@/components/spinner";
 import { useStore } from "@/hooks/use-store";
 import type { ThemeKind } from "@/hooks/use-theme";
 import type { ScaleKind } from "@/hooks/use-scale";
-import type { City } from "@/hooks/use-cities.tsx";
+import type { City } from "@/hooks/use-cities";
 
 const App = () => {
-    const { cities, theme, scale, position } = useStore();
+    const { cities, theme, scale, location } = useStore();
+
+    const { position, isLoading } = location;
 
     useEffect(() => {
         if (!position) return;
@@ -70,7 +72,7 @@ const App = () => {
                             onSelect={handleCitySelectValue}
                             onQueryChange={cities.setQuery}
                         />
-                        {cities.isLoading && <Spinner />}
+                        {(isLoading || cities.isLoading) && <Spinner />}
                     </div>
                     <div className="flex flex-row gap-4">
                         <Selector
