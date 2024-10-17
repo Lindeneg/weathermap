@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { getGeoLocation } from "@/lib/utils";
 import { useFetch } from "@/hooks/use-fetch";
 import constants from "@/constants";
-
-// tmp
-type City = any;
+import type { City } from "@/hooks/use-cities";
 
 export type UseGeoLocationHook = ReturnType<typeof useGeoLocation>;
 
