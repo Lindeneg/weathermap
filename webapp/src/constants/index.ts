@@ -11,4 +11,3 @@ Object.entries(constants).forEach(([key, value]) => {
 });
 
 export default constants;
-
