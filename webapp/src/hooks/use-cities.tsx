@@ -29,7 +29,7 @@ export const useCities = () => {
     const [suggestions, setSuggestions] = useState<City[]>([]);
     const [selected, setSelected] = useState<City | null>(null);
     const [query, setQuery] = useState("");
-    const { get } = useFetch();
+    const { get, isLoading } = useFetch();
 
     useEffect(() => {
         (async () => {
@@ -44,6 +44,7 @@ export const useCities = () => {
         suggestions,
         selected,
         query,
+        isLoading,
         setQuery,
         setSuggestions,
         setSelected: async (city: City | null) => {

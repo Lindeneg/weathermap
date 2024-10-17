@@ -23,6 +23,7 @@ const initialState: DataProviderState = {
         suggestions: [],
         selected: null,
         query: "",
+        isLoading: false,
         setQuery: () => null,
         setSelected: async () => {},
         setSuggestions: () => null,

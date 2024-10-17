@@ -4,6 +4,7 @@ import constants from "@/constants";
 import WeatherMap from "@/components/weather-map";
 import Combobox from "@/components/combo-box";
 import Selector from "@/components/selector";
+import Spinner from "@/components/spinner";
 import { useStore } from "@/hooks/use-store";
 import type { ThemeKind } from "@/hooks/use-theme";
 import type { ScaleKind } from "@/hooks/use-scale";
@@ -60,14 +61,17 @@ const App = () => {
             </div>
             <div className="flex flex-col">
                 <header className="flex h-14 justify-between items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
-                    <Combobox
-                        context="city"
-                        query={cities.query}
-                        suggestions={cities.suggestions}
-                        selected={cities.selected?.id ?? null}
-                        onSelect={handleCitySelectValue}
-                        onQueryChange={cities.setQuery}
-                    />
+                    <div className="flex flex-row gap-4 items-center">
+                        <Combobox
+                            context="city"
+                            query={cities.query}
+                            suggestions={cities.suggestions}
+                            selected={cities.selected?.id ?? null}
+                            onSelect={handleCitySelectValue}
+                            onQueryChange={cities.setQuery}
+                        />
+                        {cities.isLoading && <Spinner />}
+                    </div>
                     <div className="flex flex-row gap-4">
                         <Selector
                             options={[
