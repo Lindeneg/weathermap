@@ -1,0 +1,13 @@
+{
+    "name": "weathermap",
+    "author": "Christian Lindeneg",
+    "license": "MIT",
+    "scripts": {
+        "start:server": "npm run start --workspace=server",
+        "start:webapp": "npm run dev --workspace=webapp"
+    },
+    "workspaces": [
+        "server",
+        "webapp"
+    ]
+}
