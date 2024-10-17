@@ -14,7 +14,7 @@ type DataProviderProps = {
 type DataProviderState = {
     cities: UseCitiesHook;
     theme: UseThemeHook;
-    position: UseGeoLocationHook;
+    location: UseGeoLocationHook;
     scale: UseScaleHook;
 };
 
@@ -32,7 +32,10 @@ const initialState: DataProviderState = {
         current: "system",
         set: () => null,
     },
-    position: null,
+    location: {
+        position: null,
+        isLoading: false,
+    },
     scale: {
         current: "C",
         set: () => null,
@@ -52,12 +55,12 @@ export const DataProvider = ({ children, ...props }: DataProviderProps) => {
         defaultKind: "C",
         storageKey: "mapbox-app-scale",
     });
-    const position = useGeoLocation();
+    const location = useGeoLocation();
 
     const value = {
         cities,
         theme,
-        position,
+        location,
         scale,
     };
 
