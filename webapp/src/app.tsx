@@ -7,6 +7,7 @@ import Selector from "@/components/selector";
 import { useStore } from "@/hooks/use-store";
 import type { ThemeKind } from "@/hooks/use-theme";
 import type { ScaleKind } from "@/hooks/use-scale";
+import type { City } from "@/hooks/use-cities.tsx";
 
 const App = () => {
     const { cities, theme, scale, position } = useStore();
@@ -24,6 +25,13 @@ const App = () => {
         await cities.setSelected(
             city && city.id !== cities.selected?.id ? city : null
         );
+    };
+
+    const handleCitySelect = async (city: City) => {
+        if (city) {
+            cities.setSuggestions([city]);
+        }
+        await cities.setSelected(city);
     };
 
     return (
@@ -87,7 +95,12 @@ const App = () => {
                         </Selector>
                     </div>
                 </header>
-                <WeatherMap apiKey={constants.MAPBOX_KEY} />
+                <WeatherMap
+                    apiKey={constants.MAPBOX_KEY}
+                    selectedCity={cities.selected}
+                    scale={scale.current}
+                    onSelect={handleCitySelect}
+                />
             </div>
         </div>
     );
