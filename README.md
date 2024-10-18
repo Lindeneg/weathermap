@@ -12,6 +12,8 @@ All changes (besides the initial commit) are merged via PRs. Branches are not de
 
 Any commits after the above timestamp are either to this README file or to a `deploy` branch.
 
+The app is deployed [here](https://weather.lindeneg.org/)
+
 ---
 
 ### Acknowledgements
@@ -45,8 +47,6 @@ For the frontend, I'm going to use a 3rd party library for styling ([tailwindcss
 For this simple app, it's probably a bit too much, but it'll save some time, so I can finish all the features I want.
 
 ### Usage
-
-The app is deployed [here](https://weather.lindeneg.org/) but please note there may be some non-critical 403's errors from mapbox, if the url whitelisting has not propagated through their infrastructure. Locally those errors are of course absent.
 
 ##### Clone repo
 
