@@ -1,5 +1,9 @@
 # Weather App
 
+https://github.com/user-attachments/assets/bdcc4d84-2ebe-4657-a07d-afe4e79c56c4
+
+---
+
 - Began: October 17th 21:55 CEST
 - Ended: October 18th 00:55 CEST
 - Total: 3h
