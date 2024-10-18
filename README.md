@@ -2,11 +2,11 @@
 
 - Began: October 17th 21:55 CEST
 - Ended: October 18th 00:55 CEST
-- Total: 2h, 55min.
+- Total: 3h
 
 All changes (besides the initial commit) are merged via PRs. Branches are not deleted, so they can be checked out if desired.
 
-Any commits after the above timestamp are either to this README file or to a `deploy` branch, if I decide that I want to deploy the app. Not sure yet.
+Any commits after the above timestamp are either to this README file or to a `deploy` branch.
 
 ---
 
@@ -23,17 +23,14 @@ Immediately after reading the description, I had the following ideas in mind:
 
 1) When a user searches for a city, we should provide auto-suggestions of cities we guarantee are supported.
 2) We should also show all supported cities in mapbox as clusters with clickable markers.
-3) While the latter will be requested once, the former will be requested for each query keystroke.
-4) Thus, we also need to ensure appropriate use of caching. 
-5) My inclination is that using Cache-Control with gzip compression is probably fine for this assignment.
+3) While the latter will be requested once, the former will be requested for each query keystroke. 
+4) My inclination is that using Cache-Control with gzip compression is probably fine for this assignment.
 
-Now, in order to do that, we need to know about the cities we support, else we will not be able to provide auto-suggestions. We also want both the geojson and auto suggestions to be cacheable.
-
-That means, I'm going to build a very simple server that can help us achieve that. Normally, of course that's not my job as a frontender but since I'm the only dev working on this assignment, I'll do it in order to achieve the functionality I desire. 
-
-For that reason, the server is also in js, so I can save a build-step and focus on the frontend side of things.
+Now, in order to do that, we need to know about the cities we support, else we will not be able to provide auto-suggestions.
 
 I found this dataset that I'm going to use: https://simplemaps.com/data/world-cities
+
+I'm going to build a very simple server that can help us achieve that. Normally, of course that's not my job as a frontender but since I'm the only dev working on this assignment, I'll do it in order to not keep all the data on the frontend in-memory, which just doesn't feel right.
 
 Once we have this, the admittedly very simple system will look as follows:
 
@@ -44,6 +41,8 @@ For the frontend, I'm going to use a 3rd party library for styling ([tailwindcss
 For this simple app, it's probably a bit too much, but it'll save some time, so I can finish all the features I want.
 
 ### Usage
+
+The app is deployed [here](https://weather.lindeneg.org/) but please note there may be some non-critical 403's errors from mapbox, if the url whitelisting has not propagated through their infrastructure. Locally those errors are of course absent.
 
 ##### Clone repo
 
@@ -68,7 +67,7 @@ For this simple app, it's probably a bit too much, but it'll save some time, so 
 
 ##### Go back to the root project folder and run the below commands in two separate shells:
 
-**Ensure you're running the correct node version in both shells.**
+Ensure you're running the correct node version in both shells.
 
 
 - `npm run start:server`
