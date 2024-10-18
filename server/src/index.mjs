@@ -4,7 +4,12 @@ import compression from "compression";
 import DataContext from "./services/data-context.mjs";
 import CityService from "./services/city-service.mjs";
 import CSVSeedService from "./services/csv-seed-service.mjs";
-import { dataPath, columns, columnMapper } from "./constants/index.mjs";
+import {
+    dataPath,
+    publicPath,
+    columns,
+    columnMapper,
+} from "./constants/index.mjs";
 
 const dataContext = await DataContext.createAndConnect(
     path.join(dataPath, "cities.db")
@@ -37,7 +42,7 @@ const app = express();
 
 app.use(compression());
 
-app.use(express.static("public"));
+app.use(express.static(publicPath));
 
 app.use(express.json());
 
