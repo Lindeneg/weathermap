@@ -1,6 +1,5 @@
 import path from "path";
 import express from "express";
-import cors from "cors";
 import compression from "compression";
 import DataContext from "./services/data-context.mjs";
 import CityService from "./services/city-service.mjs";
@@ -35,8 +34,11 @@ if (!(await cityService.hasAny())) {
 }
 
 const app = express();
-app.use(cors());
+
 app.use(compression());
+
+app.use(express.static("public"));
+
 app.use(express.json());
 
 app.use((_, res, next) => {

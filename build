@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+npm run build --workspace=webapp
+
+rm -rf ./server/public
+
+mv ./webapp/dist  ./server/public
+
+npm run start:server
+

@@ -1,6 +1,7 @@
 import path from "path";
 
 export const dataPath = path.join(import.meta.dirname, "..", "..", "data");
+export const publicPath = path.join(import.meta.dirname, "..", "..", "public");
 
 export const columns = [
     "city",
